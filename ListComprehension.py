@@ -33,3 +33,8 @@ odds = [x for x in numbers if x % 2 != 0]
 nested = [[1, 2], [3, 4]]
 flat = [num for sublist in nested for num in sublist]
 # Output: [1, 2, 3, 4]
+
+# BAD PRACTICE - SIDE EFFECTS
+# Don't use list comprehensions to print or modify external variables.
+# They should be used to only create lists.
+[print(x) for x in range(5)] #Again, bad. Don't do this.
