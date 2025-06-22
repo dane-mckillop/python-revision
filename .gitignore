@@ -1,0 +1,86 @@
+# Python bytecode and cache
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.egg-info/
+*.egg
+
+# Virtual environments
+venv/
+.env/
+.venv/
+env/
+ENV/
+virtualenv/
+*.venv
+
+# Dependency management
+dist/
+build/
+*.whl
+*.tar.gz
+Pipfile.lock
+poetry.lock
+*.lock
+
+# Environment variables and secrets
+*.env
+.env.local
+.env.*.local
+secrets.json
+credentials.json
+*.key
+*.pem
+*.crt
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+.DS_Store
+*.swp
+*~
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+coverage.xml
+*.cover
+htmlcov/
+nosetests.xml
+*.tox/
+tox.ini
+junit.xml
+
+# Profiling and logs
+*.log
+*.prof
+prof/
+
+# Packaging and distribution
+MANIFEST
+MANIFEST.in
+setup.cfg
+*.spec
+
+# OS-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
+*.cache
+cache/
+tmp/
+temp/
+
+# Documentation
+docs/_build/
+_build/
+site/
