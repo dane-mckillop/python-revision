@@ -1,7 +1,7 @@
 import time
 import random
 
-def retry(max_attempts, delay=1):
+def retry(max_attempts, backoff=1):
     """Decorates a function to retry it on failure up to a specified number of attempts.
 
     The decorator retries the function if it raises an exception, waiting for a specified
@@ -33,7 +33,7 @@ def retry(max_attempts, delay=1):
                     if attempt == max_attempts - 1:
                         print(f"Total retry attempts triggered: {error_count}")
                         raise
-                    time.sleep(delay)  # Backoff
+                    time.sleep(backoff)  # Backoff
         return wrapper
     return decorator
 
@@ -42,7 +42,7 @@ def simple_retry(func):
     
     Retries a function up to 3 times with a 1-second delay."""
     def wrapper(*args, **kwargs):
-        delay = random.uniform(0.5, 1.5)  # Random delay between 0.5 and 1.5 seconds
+        backoff = random.uniform(0.5, 1.5)  # Random delay between 0.5 and 1.5 seconds
         max_attempts = 4
         error_count = 0
         if 'max_attempts' in kwargs:
@@ -57,13 +57,13 @@ def simple_retry(func):
                 if attempt == max_attempts - 1:
                     print(f"Total retry attempts triggered: {error_count}")
                     raise
-                time.sleep(delay)
+                time.sleep(backoff)
     return wrapper
 
 if __name__ == "__main__":
     # Example usage of the retry decorator
     # Order of wrapping matters: retry should be applied before error_counter
-    @retry(max_attempts=4, delay=2)
+    @retry(max_attempts=4, backoff=2)
     def flaky_function():
         if random.choice([True, False]):
             raise ValueError("Random failure")
